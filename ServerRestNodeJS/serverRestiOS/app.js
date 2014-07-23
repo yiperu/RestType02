@@ -23,6 +23,10 @@ app.use(express.static(path.join(__dirname, 'public')));
 
 app.use('/', routes);
 app.use('/users', users);
+// Vista dinamica
+app.get('/:a?/:b?/:c?', function(req, res){
+    res.send('<h2>' + req.params.a + ' ' + req.params.b + ' ' + req.params.c + '</h2>');
+});
 
 /// catch 404 and forward to error handler
 app.use(function(req, res, next) {
